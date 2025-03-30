@@ -43,11 +43,21 @@ input {
     background-color: #f2f2f2;
 }
 
+
+input:hover{
+    border-color: #007bff;  /* Change border to blue */
+    background-color: #f0f8ff; /* Change background to light blue */
+}
+
+input:focus {
+    background-color: #f2f2f2; /* Light blue */
+}
+
 button {
-    width: 100%;
+    width: 105%;
     padding: 10px;
     margin: 10px 0;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: black;
     color: white;
     cursor: pointer;
@@ -67,4 +77,47 @@ button:hover {
     color: black;
     border: 1px solid black;
 }
+
+button {
+    background-color: #000000;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+    box-shadow: 0px 0px 15px #414141;
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.or-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    position: relative;
+    padding: 12px 24px;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+
 
