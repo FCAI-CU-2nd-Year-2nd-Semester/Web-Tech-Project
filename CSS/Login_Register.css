@@ -13,6 +13,10 @@ body {
     max-width: 900px;
     height: 600px;
     background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    position: relative;
 }
 
 #imageContainer {
@@ -21,6 +25,7 @@ body {
     justify-content: center;
     background-color: #e6e6e6;
 }
+
 
 #imageContainer img {
     width: 80%;
@@ -32,6 +37,16 @@ body {
     padding: 40px;
     text-align: center;
     background: white;
+}
+
+#imageTopCenter {
+    width: 500px; /* Adjust size */
+    height: 250px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 50%; /* Makes it circular */
+    margin: -125px auto 10px; /* Moves it up */
+    display: block; /* Centers the image */
+    
 }
 
 input {
@@ -61,7 +76,7 @@ button {
     padding: 12px 24px;
     border: none;
     border-radius: 8px;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -114,3 +129,12 @@ button img {
     color: #942b2b;
 }
 
+.input-with-icon {
+    width: 90%;
+    padding-left: 30px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    background-size: 12px;
+  
+}
