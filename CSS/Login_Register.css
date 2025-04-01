@@ -10,21 +10,28 @@ body {
 #container {
     display: flex;
     width: 70%;
+    /* height: 600px;  <-- remove this */
     max-width: 900px;
-    height: 600px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
     position: relative;
+    margin: 20px auto;
+    /* Center horizontally, if needed */
 }
 
 #imageContainer {
     flex: 1;
+    /* Let it grow/shrink with the container */
     display: flex;
+    align-items: center;
+    /* Vertically center image if desired */
     justify-content: center;
+    /* Horizontally center image */
     background-color: #e6e6e6;
 }
+
 
 
 #imageContainer img {
@@ -37,16 +44,22 @@ body {
     padding: 40px;
     text-align: center;
     background: white;
+    overflow-y: auto;
+    /* Allow vertical scrolling */
 }
 
 #imageTopCenter {
-    width: 500px; /* Adjust size */
-    height: 250px;
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-    border-radius: 50%; /* Makes it circular */
-    margin: -125px auto 10px; /* Moves it up */
-    display: block; /* Centers the image */
-    
+    width: 20%;
+    /* Make sure it stays within its parent */
+    max-width: 250px;
+    /* Set a reasonable max width */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto 10px;
+    /* Center the image */
+    overflow: hidden;
+    /* Prevent overflow */
 }
 
 input {
@@ -59,13 +72,16 @@ input {
 }
 
 
-input:hover{
-    border-color: #007bff;  /* Change border to blue */
-    background-color: #f0f8ff; /* Change background to light blue */
+input:hover {
+    border-color: #007bff;
+    /* Change border to blue */
+    background-color: #f0f8ff;
+    /* Change background to light blue */
 }
 
 input:focus {
-    background-color: #f2f2f2; /* Light blue */
+    background-color: #f2f2f2;
+    /* Light blue */
 }
 
 button {
@@ -136,5 +152,17 @@ button img {
     background-repeat: no-repeat;
     background-position: 8px center;
     background-size: 12px;
-  
+
+}
+
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+        height: 1005;
+    }
+
+    #imageContainer {
+        flex: unset;
+        width: 100%;
+    }
 }
