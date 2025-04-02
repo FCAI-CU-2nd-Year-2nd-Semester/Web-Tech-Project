@@ -36,6 +36,20 @@ body {
     padding: 40px;
     text-align: center;
     background: white;
+    overflow-y: auto;
+    /* Allow vertical scrolling */
+}
+
+#imageTopCenter {
+    display: block;
+    width: 80%;          /* Let it scale naturally */
+    max-width: 600px;     /* Hard limit on width */
+    max-height: 400px;    /* Optional: Limit height if needed */
+    height: 10%;         /* Maintain aspect ratio */
+    margin: 0 auto;       /* Center horizontally */
+    object-fit: contain;  /* Prevent distortion */
+    position: relative;   /* Helps with positioning */
+    top: 0;               /* Stick to the top */
 }
 
 input {
