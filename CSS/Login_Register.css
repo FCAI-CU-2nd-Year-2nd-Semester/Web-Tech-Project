@@ -47,21 +47,14 @@ body {
 }
 
 #imageTopCenter {
-<<<<<<< HEAD
-    width: 50%;
-    display: block;
-    margin: 0 auto 10px;
-=======
-    display: block;
-    width: 80%;          /* Let it scale naturally */
-    max-width: 600px;     /* Hard limit on width */
-    max-height: 400px;    /* Optional: Limit height if needed */
-    height: 10%;         /* Maintain aspect ratio */
-    margin: 0 auto;       /* Center horizontally */
+    flex: 1;
+    display: flex;
+    width: 50%;          /* Let it scale naturally */
+    height: 50%;         /* Maintain aspect ratio */
+    margin: 0 auto 10px;       /* Center horizontally */
     object-fit: contain;  /* Prevent distortion */
     position: relative;   /* Helps with positioning */
     top: 0;               /* Stick to the top */
->>>>>>> b2d2f1085285650f3169226068c9649b610d5202
 }
 
 input {
@@ -190,5 +183,10 @@ button img {
     #imageContainer {
         flex: unset;
         height: 100%;
+    }
+    #imageTopCenter {
+        flex: unset;
+        width: 100%;          /* Let it scale naturally */
+        height: 100%;            /* Stick to the top */
     }
 }
