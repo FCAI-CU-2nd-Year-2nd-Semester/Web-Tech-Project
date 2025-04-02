@@ -1,0 +1,1092 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@500&family=Montserrat:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: hsl(230, 62%, 56%);
+    --title-color: hsl(230, 70%, 16%);
+    --text-color: hsl(230, 16%, 45%);
+    --border-color: hsl(230, 50%, 90%);
+    --white-color: hsl(0, 0%, 100%);
+    --body-color: hsl(230, 100%, 96%);
+    --container-color: hsl(230, 100%, 97%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Montserrat", sans-serif;
+    --second-font: "Montagu Slab", serif;
+    --biggest-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+    :root {
+        --biggest-font-size: 3.5rem;
+        --h1-font-size: 2.25rem;
+        --h2-font-size: 1.5rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body,
+html {
+    overflow: visible;
+    /* Ensure scrolling is allowed */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin-bottom: 2rem;
+    /* Add margin to the bottom of the page */
+}
+
+body,
+input,
+button {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+    transition: background-color .4s;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--title-color);
+    font-family: var(--second-font);
+    font-weight: var(--font-medium);
+}
+
+body {
+    overflow: visible;
+    /* Ensure scrolling is allowed */
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*=============== THEME ===============*/
+/*========== Variables Dark theme ==========*/
+
+
+/*========== 
+	Color changes in some parts of 
+	the website, in dark theme
+==========*/
+
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+    width: 100%;
+    /* Ensure the container takes the full width */
+    max-width: 1200px;
+    /* Optional: Limit the maximum width for larger screens */
+    margin: 0 auto;
+    /* Center the container */
+    padding: 0 1rem;
+    /* Add padding for spacing */
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        /* Remove width restriction for smaller screens */
+        padding: 0 1rem;
+        /* Add padding for spacing */
+    }
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.section {
+    padding-block: 5rem 1rem;
+}
+
+.section__title {
+    text-align: center;
+    font-size: var(--h1-font-size);
+    font-family: var(--second-font);
+    margin-bottom: 2rem;
+}
+
+.main {
+    overflow: hidden;
+    /* For animation ScrollReveal */
+}
+
+/*=============== HEADER & NAV ===============*/
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--body-color);
+    z-index: var(--z-fixed);
+    width: 100%;
+    padding: 1.5rem 1.5rem;
+    transition: box-shadow .4s, background-color .4s;
+}
+.nav{
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.nav__logo{
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+}
+.nav__logo i{
+    font-size: 1.5rem;
+    color: var(--first-color);
+}
+/*=== Navigation for mobile devices ===========*/
+@media screen and (max-width: 1150px) {
+    .nav__menu{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: var(--container-color);
+        box-shadow: 0 -8px 32px hsla(0, 0%, 0%, .1);
+        padding: 2rem 1.5rem;
+        transition: transform .4s;
+    }
+    
+}
+
+.nav__list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__link{
+    color: var(--text-color);
+    transition: color .4s;
+}
+
+.nav__link span{
+    display:none;
+}
+
+.nav__link i{
+    font-size: 1.25rem;
+}
+
+.nav__link:hover{
+    color: var(--first-color);
+}
+
+.nav__actions{
+    display: flex;
+    align-items: center;
+    column-gap: 1.5rem;
+}
+
+.nav__actions i{
+    font-size: 1.25rem;
+    color: var(--title-color);
+    cursor: pointer;
+    transition: color .4s;
+}
+
+.nav__actions i:hover{
+    color: var(--first-color);
+}
+
+/* Add shadow header */
+.shadow-header{
+    box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
+}
+
+/* Active link */
+
+
+/*=============== SEARCH ===============*/
+.search{
+    position:fixed;
+    top:-100%;
+    left:0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-fixed);
+    background-color: hsla(240, 13%, 95%, .6);
+    backdrop-filter: blur(17px);
+    padding: 8rem 1.5rem;
+    transition: top .4s;
+}
+
+.search__form{
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    background-color: var(--container-color);
+    border: 2px solid var(--border-color);
+    border-radius: 1.5rem;
+    padding-inline: 1.5rem;
+}
+
+.search__icon{
+    color: var(--title-color);
+    font-size: 1.25rem;
+}
+
+.search__input{
+    width: 100%;
+    padding-block: 1rem;
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    background-color: transparent;
+}
+
+.search__close{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: var(--title-color);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color .4s;
+}
+
+/* Show search */
+.show-search{
+    top: 0;
+}
+
+
+/*=============== LOGIN ===============*/
+.login{
+    position: fixed;
+    top:-100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-fixed);
+    background-color: hsla(240, 13%, 95%, .6);
+    backdrop-filter: blur(17px);
+    padding: 1.5rem;
+    transition: top .4s;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.login__form{
+    background-color: var(--container-color);
+    border-radius: 2px solid var(--border-color);
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+}
+
+.login__title{
+    font-size: var(--h1-font-size);
+    font-family: var(--second-font);
+    color: var(--first-color);
+    margin-bottom: 1rem;
+}
+
+.login__group{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.25rem;
+}
+
+.login__label{
+    display: block;
+    font-size: var(--normal-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    text-align: initial;
+    margin-bottom: .25rem;
+}
+
+.login__input{
+    padding: 1rem;
+    width: 100%;
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    background-color: var(--container-color);
+    border: 2px solid var(--border-color);
+    border-radius: 1.5rem;
+    transition: border-color .4s;
+}
+
+.login__input::placeholder{
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+}
+
+.login__input:focus{
+    border-color: var(--first-color);
+}
+.login__input:focus::placeholder{
+    color: transparent;
+}
+.login__signup,
+.login__forgot{
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+    text-align: center;
+    transition: color .4s;
+}
+
+.login__signup {
+    margin-bottom:.5rem ;
+}
+.login__signup a{
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+}
+.login__signup a:hover{
+    color: var(--first-color);
+}
+.login__forgot{
+    color: var(--first-color);
+    margin-bottom: 1.25rem;
+    font-weight: var(--font-medium);
+    transition: color .4s;
+    cursor: pointer;
+}
+
+.login__forgot:hover{
+    color: var(--first-color);
+}
+
+.login__close{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: var(--title-color);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color .4s;
+}
+
+
+
+/* Show login */
+.login__show{
+    top: 0;
+}
+
+/*=============== HOME ===============*/
+.home__swiper{
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+.home__container{
+    padding-top:2rem;
+    row-gap: 2.5rem;
+}
+
+
+.home__background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--container-color);
+    clip-path: circle(50% at 50% 0%);
+    transition: clip-path .4s;
+}
+.home__data {
+    text-align: center;
+    /* Center-align the content */
+    margin-bottom: 3rem;
+    /* Add spacing below the content */
+    padding-inline: 1rem;
+    /* Add padding for better responsiveness */
+}
+
+.home__title {
+    font-size: var(--biggest-font-size);
+    /* Use the largest font size */
+    margin-bottom: 1.5rem;
+    /* Add spacing below the title */
+    color: var(--first-color);
+    /* Use the primary color */
+    font-family: var(--second-font);
+    /* Use a serif font for elegance */
+    font-weight: var(--font-semi-bold);
+    /* Make the title bold */
+    text-transform: uppercase;
+    /* Make the title uppercase */
+    letter-spacing: 2px;
+    /* Add spacing between letters */
+    line-height: 1.2;
+    /* Adjust line height for better readability */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+    transition: color 0.4s ease;
+    /* Smooth transition for hover effects */
+}
+.home__title:hover {
+    color: hsl(230, 62%, 66%);
+    /* Change color on hover */
+}
+.home__description {
+    font-size: var(--h2-font-size);
+    /* Use a slightly smaller font size */
+    color: var(--text-color);
+    /* Use the text color for contrast */
+    margin-bottom: 2rem;
+    /* Add spacing below the description */
+    font-family: var(--body-font);
+    /* Use the body font for readability */
+    font-weight: var(--font-regular);
+    /* Keep the description lighter */
+    line-height: 1.6;
+    /* Increase line height for better readability */
+    max-width: 600px;
+    /* Limit the width for better focus */
+    margin-inline: auto;
+    /* Center the description horizontally */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+    /* Add a subtle shadow */
+    transition: transform 0.4s ease;
+    /* Smooth transition for hover effects */
+}
+
+.home__description:hover {
+    transform: scale(1.05);
+    /* Slightly enlarge on hover */
+}
+
+.home__images {
+    display: grid;
+    gap: 1rem;
+    /* Add spacing between the books */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* Responsive layout */
+    justify-content: center;
+    /* Center the grid */
+    align-items: center;
+    /* Align items vertically */
+    padding: 1rem;
+    /* Add padding around the grid */
+}
+
+
+.home__article,
+.home__img{
+    width: 200px;
+    padding: 0;
+    margin: 0;
+    transition: scale .4s;
+}
+
+.home__article {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    scale: 0.9;
+    /* Slightly smaller by default */
+    transition: scale 0.4s ease, transform 0.4s ease;
+    /* Smooth scaling and hover effects */
+}
+.home__article:hover {
+    scale: 1;
+    /* Enlarge the book on hover */
+    transform: translateY(-10px);
+    /* Lift the book slightly */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Add a shadow effect */
+}
+.home__img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 1rem;
+    /* Add rounded corners to the images */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    /* Smooth hover effects */
+}
+.home__img:hover {
+    transform: scale(1.05);
+    /* Slightly enlarge the image on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Add a shadow effect */
+}
+/* Swiper class */
+.swiper-slide-active,
+.swiper-slide-duplicate-active{
+    scale: 1;
+
+}
+
+/*=============== BUTTON ===============*/
+.button {
+    cursor: pointer;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--first-color), hsl(230, 62%, 66%));
+    /* Add a gradient background */
+    color: var(--white-color);
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    /* Make the button more rounded */
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+    /* Make the text uppercase */
+    letter-spacing: 1px;
+    /* Add spacing between letters */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Add a subtle shadow */
+    transition: all 0.4s ease;
+    /* Smooth transition for hover effects */
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    /* Lift the button slightly on hover */
+    background: linear-gradient(135deg, hsl(230, 62%, 66%), var(--first-color));
+    /* Reverse the gradient */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    /* Increase shadow intensity */
+    color: var(--white-color);
+    /* Ensure text color remains consistent */
+}
+
+.button:active {
+    transform: translateY(2px);
+    /* Add a pressed effect */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    /* Reduce shadow intensity */
+}
+
+/*=============== SERVICES ===============*/
+.services__container {
+    display: grid;
+    gap: 1.5rem;
+    z-index: var(--z-fixed);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Responsive layout */
+}
+.services__card {
+    background-color: var(--container-color);
+    border-radius: 1.5rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
+    transition: transform .4s, box-shadow .4s;
+}
+
+.services__card:hover {
+    transform: translateY(-10px);
+    /* Lift the card slightly on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Add a shadow effect */
+}
+.services__card i {
+    font-size: 2rem;
+    color: var(--first-color);
+    margin-bottom: 1rem;
+    /* Add spacing below the icon */
+}
+.services__card h3 {
+    font-size: var(--h2-font-size);
+    /* Use a slightly smaller font size */
+    color: var(--title-color);
+    /* Use the title color for contrast */
+    margin-bottom: 1rem;
+    /* Add spacing below the title */
+    font-family: var(--second-font);
+    /* Use a serif font for elegance */
+    font-weight: var(--font-medium);
+    /* Make the title bold */
+}
+.services__card p {
+    font-size: var(--normal-font-size);
+    /* Use the normal font size */
+    color: var(--text-color);
+    /* Use the text color for contrast */
+    line-height: 1.6;
+    /* Increase line height for better readability */
+    margin-bottom: 1rem;
+    /* Add spacing below the paragraph */
+    text-align: justify;
+    /* Justify the text for better alignment */
+}
+.services__card a {
+    display: inline-block;
+    background-color: var(--first-color);
+    color: var(--white-color);
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    /* Make the button more rounded */
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+    /* Make the text uppercase */
+    letter-spacing: 1px;
+    /* Add spacing between letters */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Add a subtle shadow */
+    transition: all .4s ease;
+}
+
+.services__title{
+    font-size: var(--h1-font-size);
+    font-family: var(--second-font);
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+}
+
+/*========================= Last section ========================*/
+.last-section {
+    padding-bottom: var(--header-height);
+    /* Add padding to the bottom */
+    min-height: 100vh;
+    /* Ensure the section is at least the height of the viewport */
+    z-index: 1;
+    /* Ensure it appears above other elements */
+}
+
+
+
+/*=============== FEATURED ===============*/
+.featured__card{
+    position:relative;
+    text-align: center;
+    background-color: var(--container-color);
+    padding: 2rem;
+    width: 60%;
+    border-radius: 1.5rem;
+    margin: 5px auto;
+    overflow: hidden;
+    box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
+    transition: border .4s, background-color .4s;
+    border: 1.5px solid var(--border-color);
+}
+
+.featured__img{
+    width:150px;
+    margin: 0 auto .75rem;
+}
+
+.featured__title{
+    font-size: var(--h2-font-size);
+    margin-bottom: .5rem;
+}
+
+.featured__title:hover{
+    color: var(--first-color);
+}
+
+.featured__prices{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: .75rem;
+    margin-bottom: 1.5rem;
+}
+
+.feataured__discount{
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    font-weight: var(--font-medium);
+    text-decoration: line-through;
+    margin-right: .5rem;
+}
+
+.featured__price{
+    font-size: var(--h2-font-size);
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+}
+
+.featured__actions{
+    display: inline-flex;
+    flex-direction: column;
+    row-gap: .75rem;
+    position: absolute;
+    top: 2rem;
+    right: -1.5rem;
+    transition: right .4s;
+
+}
+
+.featured__actions button{
+    background-color: none;
+    font-size: 1.25rem;
+    color: var(--first-color);
+    cursor: pointer;
+    transition: color .4s;
+    border: none;
+}
+
+.featured__card:hover .featured__actions{
+    right: 1.5rem;
+
+}
+/* Swiper class */
+
+
+/*=============== DISCOUNT ===============*/
+.discount__container{
+    row-gap: 3.5rem;
+    padding: 50px;
+}
+
+.discount__container:hover{
+    transform: translateY(-10px);
+    /* Lift the card slightly on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Add a shadow effect */
+}
+
+.discount__data{
+    text-align: center;   
+}
+
+.discount__title{
+    margin-bottom: 1rem;
+    font-size: var(--h2-font-size);
+    font-family: var(--second-font);
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+}
+
+.discount__discription{
+    font-size: var(--biggest-font-size);
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+    margin-bottom: 20px;
+}
+
+.discount__images{
+    display: flex;
+    justify-content: center;
+}
+
+.discount__img-1,
+.discount__img-2,
+.discount__img-12,
+.discount__img-22{
+    width: 200px;
+    margin: 0 1rem;
+    transition: transform .4s;
+}
+
+.discount__img-1:hover,
+.discount__img-2:hover,
+.discount__img-12:hover,
+.discount__img-22:hover{
+    transform: scale(1.05);
+    /* Slightly enlarge the image on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Add a shadow effect */
+}
+.discount__img-1,
+.discount__img-12{
+    z-index: 1;
+    /* Ensure it appears above the other image */
+}
+.discount__img-12{
+    transform: translateX(1rem) rotate(-10deg);
+}
+.discount__img-22{
+    transform: translateX(-1rem) rotate(10deg);
+}
+
+
+/*=============== NEW ===============*/
+
+.new__card{
+    display: flex;
+    align-items: center;
+    column-gap: 2.5rem;
+    background-color: var(--container-color);
+    padding: 2rem 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
+    transition: border .4s, background-color .4s;
+    margin-bottom: 2rem;
+    border: 1.5px solid var(--border-color);
+}
+.new__card:hover{
+    transform: translateY(-10px);
+    border: 2px solid var(--first-color);
+    /* Lift the card slightly on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Add a shadow effect */
+}
+.new__card img{
+    width: 150px;
+    height: 200px;
+    border-radius: 1rem;
+    margin-right: 2rem;
+    transition: transform .4s, box-shadow .4s;
+}
+.new__card img:hover{
+    transform: scale(1.05);
+    /* Slightly enlarge the image on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* Add a shadow effect */
+}
+
+.new__title{
+    font-size: var(--h2-font-size);
+    margin-bottom: .5rem;
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+}
+.new__title:hover{
+    color: var(--first-color);
+}
+
+.new__prices{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: .75rem;
+    margin-bottom: 1.5rem;
+}
+.new__discount{
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    font-weight: var(--font-medium);
+    text-decoration: line-through;
+    margin-right: .5rem;
+}
+.new__price{
+    font-size: var(--h2-font-size);
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+}
+
+.discount{
+    border-top: 1px solid var(--text-color);
+}
+
+.discount__container {
+    display: grid;
+    row-gap: 3.5rem;
+    padding: 50px;
+    background-color: var(--container-color);
+    border: 2px solid var(--border-color);
+    /* Add a border */
+    border-radius: 1.5rem;
+    /* Add rounded corners */
+    box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.1);
+    /* Subtle shadow */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    /* Smooth hover effect */
+}
+.new__stars{
+    color: rgb(218, 186, 3);
+}
+
+.new__swiper:nth-child(1){
+    margin-bottom: 2rem;
+}
+/*=============== JOIN ===============*/
+.join__container {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    justify-content: flex-start;
+    /* Align items to the top */
+    align-items: center;
+    /* Center items horizontally */
+    padding: 2rem 1rem;
+    background-color: var(--container-color);
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
+    transition: border 0.4s, background-color 0.4s;
+    margin-bottom: 2rem;
+    margin-top: 10rem;
+}
+
+.join__title {
+    font-size: var(--h2-font-size);
+    margin-bottom: 1rem;
+    /* Add spacing below the title */
+    color: var(--first-color);
+    font-weight: var(--font-medium);
+    text-align: center;
+    /* Center-align the title */
+    transition: color 0.4s;
+}
+
+.join__container p {
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-inline: auto;
+    /* Center the description horizontally */
+}
+
+.join__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    width: 100%;
+    /* Ensure the form takes full width */
+}
+.join__container:hover {
+    transform: translateY(-10px);
+    border: 2px solid var(--first-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.6s ease, box-shadow 0.6s ease, border 0.6s ease;
+    /* Smooth hover effect for transform, box-shadow, and border */
+}
+
+.join__input{
+    padding: 1rem;
+    width: 100%;
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    background-color: var(--container-color);
+    border: 2px solid var(--border-color);
+    border-radius: 1.5rem;
+    transition: border-color .4s;
+}
+.join__input::placeholder{
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+}
+.join__input:focus{
+    border-color: var(--first-color);
+}
+.join__input:focus::placeholder{
+    color: transparent;
+}
+.join__input:focus::placeholder{
+    color: transparent;
+}
+
+/*========================== for larg devices ================================*/
+@media screen and (min-width: 1150px) {
+    .section {
+        padding-block: 7rem 2rem;
+    }
+
+    .nav {
+        height: cala(var(--header-height)+2rem);
+        column-gap: 4rem;
+    }
+
+    .nav__link i {
+        display: none;
+    }
+
+    .nav__link span {
+        display: block;
+    }
+
+    .nav__menu {
+        width: initial;
+        margin-inline: auto 0;
+    }
+
+    .nav__list {
+        column-gap: 4rem;
+    }
+
+}
+
+/*=============== NEWSLETTER ===============*/
+
+
+/*=============== TESTIMONIAL ===============*/
+
+
+/*=============== FOOTER ===============*/
+
+
+/*=============== SCROLL BAR ===============*/
+
+
+/*=============== SCROLL UP ===============*/
+
+
+/* Show Scroll Up */
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+
+
+/* For medium devices */
+
+
+/* For large devices */
