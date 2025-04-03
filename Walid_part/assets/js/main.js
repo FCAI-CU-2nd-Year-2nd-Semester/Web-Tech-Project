@@ -119,7 +119,7 @@ let swiperNew = new Swiper('.new__swiper', {
             spaceBetween: 24,
         },
         1220: {
-            slidesPerView: 4, // Show 4 slides on large screens
+            slidesPerView: 3, // Show 4 slides on large screens
             spaceBetween: 32,
         },
     },
