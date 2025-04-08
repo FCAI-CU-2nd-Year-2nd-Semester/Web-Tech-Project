@@ -23,13 +23,14 @@ body {
 
 #imageContainer {
     flex: 1;
-    /* Let it grow/shrink with the container */
     display: flex;
     align-items: center;
-    /* Vertically center image if desired */
     justify-content: center;
-    /* Horizontally center image */
-    background-color: #e6e6e6;
+    background-color: #f1f5f9;
+    /* Softer, modern gray-blue background */
+    padding: 20px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
 }
 
 
@@ -58,56 +59,65 @@ body {
 }
 
 input {
-    width: 100%;
-    padding: 10px;
+    width: 90%;
+    padding: 12px 16px;
     margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f2f2f2;
+    border: 1px solid #cbd5e1; /* Softer gray-blue border */
+    border-radius: 8px;
+    background-color: #f8fafc; /* Soft white-blue background */
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
 }
 
-
 input:hover {
-    border-color: #007bff;
-    /* Change border to blue */
-    background-color: #f0f8ff;
-    /* Change background to light blue */
+    border-color: #2563eb; /* Tailwind blue-600 */
+    background-color: #eef4ff; /* Very light bluish hover */
 }
 
 input:focus {
-    background-color: #f2f2f2;
-    /* Light blue */
+    background-color: #ffffff;
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2); /* Subtle focus ring */
 }
 
 button {
-    width: 105%;
+    width: 100%;
     margin: 10px 0;
-    background-color: #000000;
+    background: linear-gradient(90deg, #1e3a8a, #1e40af); /* Deep blue gradient */
     color: white;
-    padding: 12px 24px;
+    padding: 14px 26px;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 4px 12px rgba(30, 64, 175, 0.3); /* Subtle blue shadow */
+    transition: all 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    box-shadow: 0px 0px 15px #414141;
+    background: white;
+    color: #1e3a8a; /* Match gradient color on hover */
+    border: 2px solid #1e3a8a;
+    box-shadow: 0px 6px 16px rgba(30, 64, 175, 0.5);
+    transform: translateY(-2px); /* Slight lift */
 }
-
 
 button img {
     width: 20px;
     height: 20px;
+    filter: brightness(0) invert(1); /* Makes logos white */
 }
+
+button:hover img {
+    filter: none; /* Show original dark icon */
+}
+
 
 
 .center {
