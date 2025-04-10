@@ -798,11 +798,21 @@ img {
 
 
 /*=============== DISCOUNT ===============*/
-.discount__container{
+
+.discount__container {
+    display: grid;
     row-gap: 3.5rem;
     padding: 50px;
+    background-color: var(--container-color);
+    border: 2px solid var(--border-color);
+    /* Add a border */
+    border-radius: 1.5rem;
+    /* Add rounded corners */
+    box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.1);
+    /* Subtle shadow */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    /* Smooth hover effect */
 }
-
 .discount__container:hover{
     transform: translateY(-10px);
     /* Lift the card slightly on hover */
@@ -858,10 +868,10 @@ img {
     /* Ensure it appears above the other image */
 }
 .discount__img-12{
-    transform: translateX(1rem) rotate(-10deg);
+    transform: translateX(1rem) rotate(-20deg);
 }
 .discount__img-22{
-    transform: translateX(-1rem) rotate(10deg);
+    transform: translateX(-1rem) rotate(20deg);
 }
 
 
@@ -877,6 +887,7 @@ img {
     box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
     transition: border .4s, background-color .4s;
     margin-bottom: 2rem;
+    margin-top: 2rem;
     border: 1.5px solid var(--border-color);
 }
 .new__card:hover{
@@ -930,24 +941,6 @@ img {
     font-weight: var(--font-medium);
 }
 
-.discount{
-    border-top: 1px solid var(--text-color);
-}
-
-.discount__container {
-    display: grid;
-    row-gap: 3.5rem;
-    padding: 50px;
-    background-color: var(--container-color);
-    border: 2px solid var(--border-color);
-    /* Add a border */
-    border-radius: 1.5rem;
-    /* Add rounded corners */
-    box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.1);
-    /* Subtle shadow */
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-    /* Smooth hover effect */
-}
 .new__stars{
     color: rgb(218, 186, 3);
 }
