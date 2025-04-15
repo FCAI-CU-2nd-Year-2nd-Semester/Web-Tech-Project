@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <title>Library Admin Dashboard</title>
+</head>
+
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <i class="ri-dashboard-fill"></i>Admin Dashboard
+            </a>
+            <div class="nav__actions">
+                <a href="index.html" class="button">
+                    <i class="ri-arrow-left-line"></i> Back to Site
+                </a>
+                <i class="ri-moon-line change-theme" id="theme-button"></i>
+            </div>
+        </nav>
+    </header>
+
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <nav class="admin-nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#dashboard" class="nav__link active">
+                            <i class="ri-dashboard-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#books" class="nav__link">
+                            <i class="ri-book-line"></i>
+                            <span>Manage Books</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#users" class="nav__link">
+                            <i class="ri-user-line"></i>
+                            <span>Manage Users</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#orders" class="nav__link">
+                            <i class="ri-shopping-cart-line"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#analytics" class="nav__link">
+                            <i class="ri-line-chart-line"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <section id="dashboard" class="admin-section active">
+                <h2 class="section__title">Dashboard Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="ri-book-2-line"></i>
+                        <h3>Total Books</h3>
+                        <p>1,234</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="ri-user-line"></i>
+                        <h3>Active Users</h3>
+                        <p>892</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="ri-shopping-cart-line"></i>
+                        <h3>Recent Orders</h3>
+                        <p>56</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="ri-money-dollar-circle-line"></i>
+                        <h3>Revenue</h3>
+                        <p>$12,345</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="books" class="admin-section">
+                <h2 class="section__title">Manage Books</h2>
+                <div class="admin-card">
+                    <h3>Add New Book</h3>
+                    <form class="admin-form">
+                        <input type="text" placeholder="Book Title">
+                        <input type="text" placeholder="Author">
+                        <input type="number" placeholder="Price">
+                        <button class="button">Add Book</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="users" class="admin-section">
+                <h2 class="section__title">Manage Users</h2>
+                
+                <!-- Add User Form -->
+                <div class="admin-card">
+                    <h3>Add New User</h3>
+                    <form class="admin-form" id="userForm">
+                        <div class="form-group">
+                            <input type="text" id="userName" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="userEmail" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="userPassword" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="userRole" class="role-select">
+                                <option value="member">Member</option>
+                                <option value="librarian">Librarian</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="button">Add User</button>
+                    </form>
+                </div>
+            
+                <!-- Users Table -->
+                <div class="admin-card">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- Existing users will be populated here -->
+                                <tr>
+                                    <td>Admin User</td>
+                                    <td>admin@example.com</td>
+                                    <td><span class="role-badge admin">Admin</span></td>
+                                    <td>
+                                        <button class="icon-button edit"><i class="ri-edit-line"></i></button>
+                                        <button class="icon-button delete"><i class="ri-delete-bin-line"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="orders" class="admin-section">
+                <h2 class="section__title">Recent Orders</h2>
+                <div class="admin-card">
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Book</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#1234</td>
+                                    <td>The Great Adventure</td>
+                                    <td>$24.99</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="analytics" class="admin-section">
+                <h2 class="section__title">Analytics</h2>
+                <div class="admin-card">
+                    <div class="chart-placeholder">
+                        <p>Sales Chart (Placeholder)</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Admin Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.admin-nav .nav__link');
+            const sections = document.querySelectorAll('.admin-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active classes
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const target = this.getAttribute('href');
+                    document.querySelector(target).classList.add('active');
+                });
+            });
+        });
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.admin-nav .nav__link');
+            const sections = document.querySelectorAll('.admin-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active classes
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    sections.forEach(section => section.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show corresponding section
+                    const target = this.getAttribute('href');
+                    document.querySelector(target).classList.add('active');
+                });
+            });
+        });
+
+        // ====== ADD NEW USER MANAGEMENT CODE BELOW ======
+        document.addEventListener('DOMContentLoaded', function() {
+            // User Management
+            document.getElementById('userForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('userName').value;
+                const email = document.getElementById('userEmail').value;
+                const role = document.getElementById('userRole').value;
+                
+                // Create new table row
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${name}</td>
+                    <td>${email}</td>
+                    <td><span class="role-badge ${role}">${role.charAt(0).toUpperCase() + role.slice(1)}</span></td>
+                    <td>
+                        <button class="icon-button edit"><i class="ri-edit-line"></i></button>
+                        <button class="icon-button delete"><i class="ri-delete-bin-line"></i></button>
+                    </td>
+                `;
+                
+                // Add to table
+                document.getElementById('usersTableBody').appendChild(newRow);
+                
+                // Clear form
+                this.reset();
+                
+                // Show success message
+                showToast('User added successfully!');
+            });
+
+            // Delete user
+            document.addEventListener('click', function(e) {
+                if(e.target.closest('.delete')) {
+                    const row = e.target.closest('tr');
+                    row.remove();
+                    showToast('User deleted successfully!');
+                }
+            });
+
+            // Toast notification
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.className = 'toast';
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.remove();
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>
