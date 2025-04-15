@@ -139,7 +139,6 @@ let swiperTestimonial = new Swiper('.testimonial__swiper', {
 
 
 /*====== Dark and light themes ================*/
-// filepath: assets/js/main.js
 const themeButton = document.getElementById('theme-button');
 const darkTheme = 'dark-theme';
 const iconTheme = 'ri-sun-line';
