@@ -19,7 +19,7 @@
                 <i class="ri-dashboard-fill"></i>Admin Dashboard
             </a>
             <div class="nav__actions">
-                <a href="author.html" class="button">
+                <a href="index.html" class="button">
                     <i class="ri-arrow-left-line"></i> Back to Site
                 </a>
                 <i class="ri-moon-line change-theme" id="theme-button"></i>
@@ -161,7 +161,6 @@
                                 </tr>
                             </thead>
                             <tbody id="usersTableBody">
-                                <!-- Existing users will be populated here -->
                                 <tr>
                                     <td>Admin User</td>
                                     <td>admin@example.com</td>
@@ -214,7 +213,32 @@
 
     <script src="assets/js/main.js"></script>
     <script>
-        // Admin Navigation
+        // Dark Mode Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeButton = document.getElementById('theme-button');
+            const body = document.body;
+            
+            // Load saved theme
+            const savedTheme = localStorage.getItem('selected-theme');
+            if(savedTheme) {
+                body.classList.toggle('dark-theme', savedTheme === 'dark');
+                themeButton.classList.toggle('ri-sun-line', savedTheme === 'dark');
+            }
+
+            // Toggle theme
+            themeButton.addEventListener('click', function() {
+                body.classList.toggle('dark-theme');
+                themeButton.classList.toggle('ri-moon-line');
+                themeButton.classList.toggle('ri-sun-line');
+                
+                // Save theme
+                localStorage.setItem('selected-theme', 
+                    body.classList.contains('dark-theme') ? 'dark' : 'light'
+                );
+            });
+        });
+
+        // Navigation
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.admin-nav .nav__link');
             const sections = document.querySelectorAll('.admin-section');
@@ -222,46 +246,16 @@
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
-                    // Remove active classes
                     navLinks.forEach(l => l.classList.remove('active'));
                     sections.forEach(section => section.classList.remove('active'));
-                    
-                    // Add active class to clicked link
                     this.classList.add('active');
-                    
-                    // Show corresponding section
-                    const target = this.getAttribute('href');
-                    document.querySelector(target).classList.add('active');
-                });
-            });
-        });
-    
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.admin-nav .nav__link');
-            const sections = document.querySelectorAll('.admin-section');
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Remove active classes
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    sections.forEach(section => section.classList.remove('active'));
-                    
-                    // Add active class to clicked link
-                    this.classList.add('active');
-                    
-                    // Show corresponding section
-                    const target = this.getAttribute('href');
-                    document.querySelector(target).classList.add('active');
+                    document.querySelector(this.getAttribute('href')).classList.add('active');
                 });
             });
         });
 
-        // ====== ADD NEW USER MANAGEMENT CODE BELOW ======
+        // User Management
         document.addEventListener('DOMContentLoaded', function() {
-            // User Management
             document.getElementById('userForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
@@ -269,7 +263,6 @@
                 const email = document.getElementById('userEmail').value;
                 const role = document.getElementById('userRole').value;
                 
-                // Create new table row
                 const newRow = document.createElement('tr');
                 newRow.innerHTML = `
                     <td>${name}</td>
@@ -281,38 +274,28 @@
                     </td>
                 `;
                 
-                // Add to table
                 document.getElementById('usersTableBody').appendChild(newRow);
-                
-                // Clear form
                 this.reset();
-                
-                // Show success message
                 showToast('User added successfully!');
             });
 
-            // Delete user
             document.addEventListener('click', function(e) {
                 if(e.target.closest('.delete')) {
-                    const row = e.target.closest('tr');
-                    row.remove();
+                    e.target.closest('tr').remove();
                     showToast('User deleted successfully!');
                 }
             });
 
-            // Toast notification
             function showToast(message) {
                 const toast = document.createElement('div');
                 toast.className = 'toast';
                 toast.textContent = message;
                 document.body.appendChild(toast);
-                
-                setTimeout(() => {
-                    toast.remove();
-                }, 3000);
+                setTimeout(() => toast.remove(), 3000);
             }
         });
-        // Book Cover Upload Functionality
+
+        // Book Cover Upload
         document.addEventListener('DOMContentLoaded', function() {
             const uploadArea = document.getElementById('uploadArea');
             const fileInput = document.getElementById('fileInput');
@@ -320,65 +303,46 @@
             const imagePreview = document.getElementById('imagePreview');
             const removeButton = document.getElementById('removeButton');
             
-            // Handle click on upload area
-            uploadArea.addEventListener('click', function() {
-                fileInput.click();
-            });
+            uploadArea.addEventListener('click', () => fileInput.click());
             
-            // Handle file selection
             fileInput.addEventListener('change', function() {
-                if (this.files && this.files[0]) {
-                    const file = this.files[0];
-                    if (file.type.match('image.*')) {
-                        const reader = new FileReader();
-                        
-                        reader.onload = function(e) {
-                            imagePreview.src = e.target.result;
-                            uploadArea.querySelector('.upload-content').style.display = 'none';
-                            previewArea.style.display = 'block';
-                        }
-                        
-                        reader.readAsDataURL(file);
-                    }
-                }
-            });
-            
-            // Handle drag over
-            uploadArea.addEventListener('dragover', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                this.classList.add('highlight');
-            });
-            
-            // Handle drag leave
-            uploadArea.addEventListener('dragleave', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                this.classList.remove('highlight');
-            });
-            
-            // Handle drop
-            uploadArea.addEventListener('drop', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                this.classList.remove('highlight');
-                
-                const file = e.dataTransfer.files[0];
-                if (file && file.type.match('image.*')) {
-                    fileInput.files = e.dataTransfer.files;
-                    
+                if (this.files?.[0]) {
                     const reader = new FileReader();
-                    reader.onload = function(e) {
+                    reader.onload = (e) => {
                         imagePreview.src = e.target.result;
                         uploadArea.querySelector('.upload-content').style.display = 'none';
                         previewArea.style.display = 'block';
-                    }
+                    };
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('highlight');
+            });
+
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('highlight');
+            });
+
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('highlight');
+                const file = e.dataTransfer.files[0];
+                if (file?.type.match('image.*')) {
+                    fileInput.files = e.dataTransfer.files;
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        imagePreview.src = e.target.result;
+                        uploadArea.querySelector('.upload-content').style.display = 'none';
+                        previewArea.style.display = 'block';
+                    };
                     reader.readAsDataURL(file);
                 }
             });
-            
-            // Handle remove button
-            removeButton.addEventListener('click', function(e) {
+
+            removeButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 fileInput.value = '';
                 previewArea.style.display = 'none';
