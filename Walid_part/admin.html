@@ -99,9 +99,23 @@
                 <div class="admin-card">
                     <h3>Add New Book</h3>
                     <form class="admin-form">
-                        <input type="text" placeholder="Book Title">
-                        <input type="text" placeholder="Author">
-                        <input type="number" placeholder="Price">
+                        <input type="text" placeholder="Book Title" required>
+                        <input type="text" placeholder="Author" required>
+                        <input type="number" placeholder="Price" required>
+                        
+                        <!-- Book Cover Upload -->
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-content">
+                                <img src="./assets/img/upload_image.png" alt="Upload icon" class="upload-icon">
+                                <p>Drag & drop book cover here or click to browse</p>
+                                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="preview-area" id="previewArea" style="display: none;">
+                                <img id="imagePreview" src="#" alt="Preview">
+                                <button type="button" class="button remove-button" id="removeButton">Remove</button>
+                            </div>
+                        </div>
+                        
                         <button class="button">Add Book</button>
                     </form>
                 </div>
@@ -297,6 +311,79 @@
                     toast.remove();
                 }, 3000);
             }
+        });
+        // Book Cover Upload Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+            const previewArea = document.getElementById('previewArea');
+            const imagePreview = document.getElementById('imagePreview');
+            const removeButton = document.getElementById('removeButton');
+            
+            // Handle click on upload area
+            uploadArea.addEventListener('click', function() {
+                fileInput.click();
+            });
+            
+            // Handle file selection
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    if (file.type.match('image.*')) {
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(e) {
+                            imagePreview.src = e.target.result;
+                            uploadArea.querySelector('.upload-content').style.display = 'none';
+                            previewArea.style.display = 'block';
+                        }
+                        
+                        reader.readAsDataURL(file);
+                    }
+                }
+            });
+            
+            // Handle drag over
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.add('highlight');
+            });
+            
+            // Handle drag leave
+            uploadArea.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.remove('highlight');
+            });
+            
+            // Handle drop
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.remove('highlight');
+                
+                const file = e.dataTransfer.files[0];
+                if (file && file.type.match('image.*')) {
+                    fileInput.files = e.dataTransfer.files;
+                    
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.src = e.target.result;
+                        uploadArea.querySelector('.upload-content').style.display = 'none';
+                        previewArea.style.display = 'block';
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // Handle remove button
+            removeButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                fileInput.value = '';
+                previewArea.style.display = 'none';
+                uploadArea.querySelector('.upload-content').style.display = 'flex';
+            });
         });
     </script>
 </body>
