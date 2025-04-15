@@ -178,6 +178,10 @@ const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 // Mark favorite items with a red heart on page load
 favoriteButtons.forEach((button) => {
     const card = button.closest('.featured__card');
+    if (!card) {
+        console.error('Card element not found for the button.');
+        return;
+    }
     const cardTitle = card.querySelector('.featured__title').textContent;
 
     // Check if the card is in the favorites list
@@ -215,10 +219,13 @@ function addToFavorites(card) {
         price: card.querySelector('.featured__price')?.textContent || '',
     };
 
+    console.log('Adding to favorites:', cardData);
+
     // Add the card data to the favorites array if it doesn't already exist
     if (!favorites.some((item) => item.title === cardData.title)) {
         favorites.push(cardData);
         localStorage.setItem('favorites', JSON.stringify(favorites));
+        console.log('Favorites updated:', favorites);
     }
 }
 
@@ -231,4 +238,5 @@ function removeFromFavorites(title) {
 
     // Save the updated favorites array to local storage
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    console.log('Favorites after removal:', updatedFavorites);
 }

@@ -57,82 +57,48 @@
         </section>
     </main>
 
-    <section class="last-section"></section>
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer__container container grid">
-            <div>
-                <a href="#" class="footer__logo">
-                    <i class="ri-book-3-line"></i>E-Book
-                </a>
-                <p class="footer__description">The best place to find your next read.</p>
-            </div>
-
-            <div>
-                <h3 class="footer__title">About Us</h3>
-                <ul class="footer__links">
-                    <li><a href="#" class="footer__link">About Us</a></li>
-                    <li><a href="#" class="footer__link">Contact</a></li>
-                    <li><a href="#" class="footer__link">Privacy Policy</a></li>
-                    <li><a href="#" class="footer__link">Terms of Service</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h3 class="footer__title">Library</h3>
-                <ul class="footer__links">
-                    <li><a href="#" class="footer__link">Blogs</a></li>
-                    <li><a href="#" class="footer__link">Community</a></li>
-                </ul>
-            </div>
-        </div>
-        <span class="footer__copy">
-            All rights reserved &copy; 2023 <a href="index.html#home" class="footer__link">E-Book</a>.
-        </span>
-    </footer>
-
     <!-- JavaScript -->
     <script>
         // Retrieve favorites from local storage
-            const favoritesContainer = document.getElementById('favorites-container');
+        const favoritesContainer = document.getElementById('favorites-container');
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        // Display each favorite card
+        favorites.forEach((item) => {
+            const card = document.createElement('article');
+            card.classList.add('featured__card');
+
+            card.innerHTML = `
+                <img src="${item.image}" alt="image" class="featured__img">
+                <h2 class="featured__title">${item.title}</h2>
+                <div class="featured__prices">
+                    <span class="featured__discount">${item.discount}</span>
+                    <span class="featured__price">${item.price}</span>
+                </div>
+                <button class="button remove-favorite-button">Remove from Favorites</button>
+            `;
+
+            // Add the card to the container
+            favoritesContainer.appendChild(card);
+
+            // Add event listener to the remove button
+            const removeButton = card.querySelector('.remove-favorite-button');
+            removeButton.addEventListener('click', () => {
+                removeFromFavorites(item.title);
+                card.remove(); // Remove the card from the DOM
+            });
+        });
+
+        // Function to remove a card from favorites
+        function removeFromFavorites(title) {
             const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-            // Display each favorite card
-            favorites.forEach((item) => {
-                const card = document.createElement('article');
-                card.classList.add('featured__card');
+            // Remove the card from the favorites array
+            const updatedFavorites = favorites.filter((item) => item.title !== title);
 
-                card.innerHTML = `
-        <img src="${item.image}" alt="image" class="featured__img">
-        <h2 class="featured__title">${item.title}</h2>
-        <div class="featured__prices">
-            <span class="featured__discount">${item.discount}</span>
-            <span class="featured__price">${item.price}</span>
-        </div>
-        <button class="button remove-favorite-button">Remove from Favorites</button>
-    `;
-
-                // Add the card to the container
-                favoritesContainer.appendChild(card);
-
-                // Add event listener to the remove button
-                const removeButton = card.querySelector('.remove-favorite-button');
-                removeButton.addEventListener('click', () => {
-                    removeFromFavorites(item.title);
-                    card.remove(); // Remove the card from the DOM
-                });
-            });
-
-            // Function to remove a card from favorites
-            function removeFromFavorites(title) {
-                const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-                // Remove the card from the favorites array
-                const updatedFavorites = favorites.filter((item) => item.title !== title);
-
-                // Save the updated favorites array to local storage
-                localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-            }
+            // Save the updated favorites array to local storage
+            localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+        }
     </script>
 </body>
 
