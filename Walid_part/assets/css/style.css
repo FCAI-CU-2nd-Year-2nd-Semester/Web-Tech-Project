@@ -119,14 +119,14 @@ img {
     height: auto;
 }
 
-/*=============== THEME ===============*/
 /*========== Variables Dark theme ==========*/
-
-
-/*========== 
-	Color changes in some parts of 
-	the website, in dark theme
-==========*/
+body.dark-theme{
+    --title-color: hsl(230, 48%, 85%);
+    --text-color: hsl(230, 16%, 70%);
+    --border-color: hsl(230, 12%, 18%);
+    --body-color: hsl(230, 12%, 8%);
+    --container-color: hsl(230, 12%, 12%);
+}
 
 
 /*=============== REUSABLE CSS CLASSES ===============*/
@@ -313,127 +313,6 @@ img {
 
 /* Show search */
 .show-search{
-    top: 0;
-}
-
-
-/*=============== LOGIN ===============*/
-.login{
-    position: fixed;
-    top:-100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: var(--z-fixed);
-    background-color: hsla(240, 13%, 95%, .6);
-    backdrop-filter: blur(17px);
-    padding: 1.5rem;
-    transition: top .4s;
-    align-items: center;
-    text-align: center;
-    
-}
-
-.login__form{
-    background-color: var(--container-color);
-    border-radius: 2px solid var(--border-color);
-    padding: 2rem 1.5rem;
-    box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.5rem;
-}
-
-.login__title{
-    font-size: var(--h1-font-size);
-    font-family: var(--second-font);
-    color: var(--first-color);
-    margin-bottom: 1rem;
-}
-
-.login__group{
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.25rem;
-}
-
-.login__label{
-    display: block;
-    font-size: var(--normal-font-size);
-    color: var(--title-color);
-    font-weight: var(--font-medium);
-    text-align: initial;
-    margin-bottom: .25rem;
-}
-
-.login__input{
-    padding: 1rem;
-    width: 100%;
-    font-size: var(--normal-font-size);
-    color: var(--text-color);
-    background-color: var(--container-color);
-    border: 2px solid var(--border-color);
-    border-radius: 1.5rem;
-    transition: border-color .4s;
-}
-
-.login__input::placeholder{
-    color: var(--text-color);
-    font-size: var(--small-font-size);
-}
-
-.login__input:focus{
-    border-color: var(--first-color);
-}
-.login__input:focus::placeholder{
-    color: transparent;
-}
-.login__signup,
-.login__forgot{
-    color: var(--text-color);
-    font-size: var(--small-font-size);
-    text-align: center;
-    transition: color .4s;
-}
-
-.login__signup {
-    margin-bottom:.5rem ;
-}
-.login__signup a{
-    color: var(--first-color);
-    font-weight: var(--font-medium);
-}
-.login__signup a:hover{
-    color: var(--first-color);
-}
-.login__forgot{
-    color: var(--first-color);
-    margin-bottom: 1.25rem;
-    font-weight: var(--font-medium);
-    transition: color .4s;
-    cursor: pointer;
-}
-
-.login__forgot:hover{
-    color: var(--first-color);
-}
-
-.login__close{
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    color: var(--title-color);
-    font-size: 2rem;
-    cursor: pointer;
-    transition: color .4s;
-}
-
-
-
-/* Show login */
-.login__show{
     top: 0;
 }
 
@@ -711,7 +590,7 @@ img {
 .last-section {
     padding-bottom: var(--header-height);
     /* Add padding to the bottom */
-    min-height: 100vh;
+    min-height: 20vh;
     /* Ensure the section is at least the height of the viewport */
     z-index: 1;
     /* Ensure it appears above other elements */
@@ -798,11 +677,21 @@ img {
 
 
 /*=============== DISCOUNT ===============*/
-.discount__container{
+
+.discount__container {
+    display: grid;
     row-gap: 3.5rem;
     padding: 50px;
+    background-color: var(--container-color);
+    border: 2px solid var(--border-color);
+    /* Add a border */
+    border-radius: 1.5rem;
+    /* Add rounded corners */
+    box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.1);
+    /* Subtle shadow */
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    /* Smooth hover effect */
 }
-
 .discount__container:hover{
     transform: translateY(-10px);
     /* Lift the card slightly on hover */
@@ -858,10 +747,10 @@ img {
     /* Ensure it appears above the other image */
 }
 .discount__img-12{
-    transform: translateX(1rem) rotate(-10deg);
+    transform: translateX(1rem) rotate(-20deg);
 }
 .discount__img-22{
-    transform: translateX(-1rem) rotate(10deg);
+    transform: translateX(-1rem) rotate(20deg);
 }
 
 
@@ -877,6 +766,7 @@ img {
     box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
     transition: border .4s, background-color .4s;
     margin-bottom: 2rem;
+    margin-top: 2rem;
     border: 1.5px solid var(--border-color);
 }
 .new__card:hover{
@@ -930,24 +820,6 @@ img {
     font-weight: var(--font-medium);
 }
 
-.discount{
-    border-top: 1px solid var(--text-color);
-}
-
-.discount__container {
-    display: grid;
-    row-gap: 3.5rem;
-    padding: 50px;
-    background-color: var(--container-color);
-    border: 2px solid var(--border-color);
-    /* Add a border */
-    border-radius: 1.5rem;
-    /* Add rounded corners */
-    box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.1);
-    /* Subtle shadow */
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-    /* Smooth hover effect */
-}
 .new__stars{
     color: rgb(218, 186, 3);
 }
@@ -1064,15 +936,141 @@ img {
 
 }
 
-/*=============== NEWSLETTER ===============*/
-
-
-/*=============== TESTIMONIAL ===============*/
-
 
 /*=============== FOOTER ===============*/
+/* Footer Styles */
+.footer {
+    background-color: var(--first-color);
+    color: var(--white-color);
+    padding: 2rem 1rem;
+    text-align: center;
+    position: relative;
+    z-index: var(--z-fixed);
+    margin-top: 2rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+    box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow: hidden;
+    padding-bottom: 3rem;
+}
 
+.footer__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Responsive grid */
+    gap: 2rem;
+    /* Space between grid items */
+    align-items: start;
+}
 
+.footer__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white-color);
+    /* Use the white color variable for the logo */
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer__description {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--container-color);
+    /* Use the text color variable for descriptions */
+}
+
+.footer__title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--white-color);
+    /* Use the white color variable for titles */
+    text-transform: uppercase;
+}
+
+.footer__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__link {
+    color: var(--container-color);
+    /* Use the text color variable for links */
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+    color: var(--title-color);
+    /* Use the primary color for hover effect */
+    text-decoration: underline;
+    /* Underline on hover */
+    transition: text-decoration 0.3s ease;
+
+}
+
+.footer__info {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--container-color);
+    /* Use the text color variable for info */
+}
+
+.footer__social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.footer__social-link {
+    color: var(--container-color);
+    /* Use the text color variable for social icons */
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer__social-link:hover {
+    color: var(--first-color);
+    /* Use the primary color for hover effect */
+    transform: scale(1.1);
+    /* Slightly enlarge on hover */
+    transition: transform 0.5s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    /* Add a shadow effect */
+    border-radius: 50%;
+    /* Make the icon circular */
+    padding: 0.5rem;
+    /* Add padding for better touch targets */
+    background-color: var(--white-color);
+
+}
+
+.footer__copy {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--container-color);
+    /* Use the text color variable for copyright text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer__container {
+        grid-template-columns: 1fr;
+        /* Stack items vertically on smaller screens */
+        text-align: center;
+    }
+
+    .footer__social {
+        justify-content: center;
+    }
+}
 /*=============== SCROLL BAR ===============*/
 
 
