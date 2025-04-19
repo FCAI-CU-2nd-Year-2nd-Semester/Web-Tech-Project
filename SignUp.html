@@ -16,8 +16,12 @@
         <div id="formContainer">
             <h1>Sign up</h1>
             <input type="text" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <input type="password" placeholder="Confirm Password" required>
+            <input type="password" placeholder="New Password" class="input-with-icon input-status-update"  required>
+            <input type="password" placeholder="Confirm New Password" class="input-with-icon input-status-confirm" required>
+            <div class = "status-bar-container">
+                <div class = "status-bar"></div>
+            </div>
+            <div class = "status-text">  </div>
             <button id="registerButton">Register</button>
             <div class="or-divider">OR</div>
             <button><img src="Icons/facebook.svg" alt="Facebook">Register with Facebook</button>
@@ -27,5 +31,5 @@
         </div>
     </div>
 </body>
-
+<script src="Authentication.js"></script>
 </html>

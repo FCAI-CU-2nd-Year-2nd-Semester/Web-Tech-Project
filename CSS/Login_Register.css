@@ -215,6 +215,37 @@ button:hover img {
     outline: none;
 }
 
+/* Status Bar Container Styling */
+.status-bar-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #727b9b;
+    background-color: #f4f4f9; /* Light background color */
+    padding: 4px; /* Padding for spacing */
+    margin: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition when showing/hiding */
+}
+
+/* Status Bar Styling */
+.status-bar {
+    width: 2%; /* Increase width for better visibility */
+    height: 8px; /* Slightly taller for better prominence */
+    background-color: #ff0000; /* Red color for 'Offline' */
+    border-radius: 8px;
+    transition: width 0.5s ease-in-out; /* Smooth transition for width change */
+}
+
+.status-text {
+    display: none; /* Initially hidden */
+    font-size: 14px; /* Font size for the status text */
+    font-family: 'Roboto', sans-serif;
+    color: #333; /* Darker text color for contrast */
+    margin: 10px 0px 20px 0px; /* Space between the bar and text */
+}
+
 @media (max-width: 768px) {
     body {
         flex-direction: column;
