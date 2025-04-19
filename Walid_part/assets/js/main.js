@@ -239,3 +239,34 @@ function removeFromFavorites(title) {
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     console.log('Favorites after removal:', updatedFavorites);
 }
+
+
+/*=============== My Cart ===============*/
+// Select all "Add to Cart" buttons
+const addToCartButtons = document.querySelectorAll('.button');
+
+// Add click event listeners to each button
+addToCartButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        const card = button.closest('.featured__card');
+
+        // Extract book data
+        const bookData = {
+            title: card.querySelector('.featured__title').textContent,
+            price: card.querySelector('.featured__price').textContent,
+            image: card.querySelector('.featured__img').src,
+        };
+
+        // Retrieve existing cart data from localStorage
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Add the book to the cart
+        cart.push(bookData);
+
+        // Save the updated cart to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Redirect to the cart page
+        window.location.href = 'MyCart.html';
+    });
+});

@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favorites</title>
+    <title>My Cart</title>
     <!-- FavIcon -->
     <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
     <!-- REMIX ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -30,15 +28,17 @@
 
     <!-- Main Content -->
     <main class="main">
-        <section class="favorites section">
-            <h2 class="section__title">Your Favorites</h2>
-            <div class="favorites__container container grid" id="favorites-container">
-                <!-- Favorite cards will be dynamically added here -->
+        <section class="cart section">
+            <h2 class="section__title">Your Cart</h2>
+            <div class="cart__container container" id="cart-container">
+                <!-- Cart items will be dynamically added here -->
             </div>
         </section>
     </main>
+    
     <section class="last-section"></section>
-    <!-- Footer -->
+
+    <!--======================= FOOTER =================-->
     <footer class="footer">
         <div class="footer__container container grid">
             <div>
@@ -110,69 +110,61 @@
 
     <!-- JavaScript -->
     <script>
-        // Retrieve favorites from local storage
-        const favoritesContainer = document.getElementById('favorites-container');
-        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-        // Display each favorite card
-        favorites.forEach((item) => {
-            const card = document.createElement('article');
-            card.classList.add('featured__card');
-
-            card.innerHTML = `
-                <img src="${item.image}" alt="image" class="featured__img">
-                <h2 class="featured__title">${item.title}</h2>
-                <div class="featured__prices">
-                    <span class="featured__discount">${item.discount}</span>
-                    <span class="featured__price">${item.price}</span>
-                </div>
-                <button class="button remove-favorite-button">Remove from Favorites</button>
-            `;
-
-            // Add the card to the container
-            favoritesContainer.appendChild(card);
-
-            // Add event listener to the remove button
-            const removeButton = card.querySelector('.remove-favorite-button');
-            removeButton.addEventListener('click', () => {
-                removeFromFavorites(item.title);
-                card.remove(); // Remove the card from the DOM
-            });
-        });
-
-        // Function to remove a card from favorites
-        function removeFromFavorites(title) {
-            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-            // Remove the card from the favorites array
-            const updatedFavorites = favorites.filter((item) => item.title !== title);
-
-            // Save the updated favorites array to local storage
-            localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-        }
-
-        // Add event listener to back button
         document.addEventListener('DOMContentLoaded', () => {
-                const backButton = document.getElementById('back-button');
+            const cartContainer = document.getElementById('cart-container');
 
-                // Get the referring page from the query parameter
-                const urlParams = new URLSearchParams(window.location.search);
-                const refPage = urlParams.get('ref') || 'index.html'; // Default to index.html if no ref is provided
+            // Retrieve cart data from localStorage
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-                // Redirect to the referring page when the "Back" button is clicked
-                backButton.addEventListener('click', () => {
-                    window.location.href = refPage;
+            // Check if the cart is empty
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+                return;
+            }
+
+            // Display each item in the cart
+            cart.forEach((item) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}" class="cart-item__img">
+                    <div class="cart-item__details">
+                        <h3 class="cart-item__title">${item.title}</h3>
+                        <p class="cart-item__price">${item.price}</p>
+                    </div>
+                    <button class="cart-item__remove">Remove</button>
+                `;
+
+                cartContainer.appendChild(cartItem);
+
+                // Add event listener to the "Remove" button
+                const removeButton = cartItem.querySelector('.cart-item__remove');
+                removeButton.addEventListener('click', () => {
+                    removeFromCart(item.title);
+                    cartItem.remove();
                 });
             });
-    </script>
 
-    <!-- ScrollReveal-->
-    <script src="assets/js/scrollreveal.min.js"></script>
-    
-    <!-- Swiper JS -->
-    <script src="assets/js/swiper-bundle.min.js"></script>
-    <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+            // Function to remove an item from the cart
+            function removeFromCart(title) {
+                const updatedCart = cart.filter((item) => item.title !== title);
+                localStorage.setItem('cart', JSON.stringify(updatedCart));
+            }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+        const backButton = document.getElementById('back-button');
+
+        // Get the referring page from the query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const refPage = urlParams.get('ref') || 'index.html'; // Default to index.html if no ref is provided
+
+        // Redirect to the referring page when the "Back" button is clicked
+        backButton.addEventListener('click', () => {
+            window.location.href = refPage;
+        });
+        });        
+    </script>
 </body>
 
 </html>

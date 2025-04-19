@@ -53,8 +53,8 @@
                     </li>
 
                     <li class="nav__item">
-                        <a href="Favourites.html" class="nav__link">
-                            <i class="ri-chat-3-line"></i>
+                        <a href="Favourites.html?ref=newbooks.html" class="nav__link">
+                            <i class="ri-heart-line"></i>
                             <span>Favorites</span>
                         </a>
                     </li>
@@ -769,6 +769,29 @@
             All rights reserved &copy; 2023 <a href="index.html#home" class="footer__link">E-Book</a>.
         </span>
     </footer>
+    <!--========================= For referrers =========================-->
+    <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                    // Get the referring page from the query parameter
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const refPage = urlParams.get('ref') || 'index.html'; // Default to index.html if no ref is provided
+
+                    console.log('Referring page:', refPage); // Debugging
+
+                    // Update navigation links to point to the correct sections of the referring page
+                    const navLinks = document.querySelectorAll('.nav__link');
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href && href.startsWith('#')) {
+                            // Update the link to point to the correct section of the referring page
+                            link.setAttribute('href', `${refPage}${href}`);
+                            console.log(`Updated link: ${refPage}${href}`); // Debugging
+                        }
+                    });
+                });
+    </script>
+
+
     <!--======================= SCROLL UP =================-->
     <!-- ScrollReveal-->
     <script src="assets/js/scrollreveal.min.js"></script>
