@@ -134,6 +134,9 @@ body.dark-theme {
 .admin-header {
     background: var(--container-color);
     box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
+    min-height: 80px; /* Increased from default 3.5rem (56px) */
+    display: flex;
+    align-items: center;
 }
 
 .admin-container {
