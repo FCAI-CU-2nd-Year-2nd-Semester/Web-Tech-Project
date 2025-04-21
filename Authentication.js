@@ -9,6 +9,7 @@ function checkInput() {
     const input = document.querySelector(".input-status-update")
     const statusbar = document.querySelector(".status-bar-container");
     const bartext = document.querySelector(".status-text");
+    input.value = input.value.replace(/\s/g, "");
     if (input.value.trim() !== "") {
         statusbar.style.display = "block";
         bartext.style.display = "block";       
