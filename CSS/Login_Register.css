@@ -50,7 +50,7 @@ body {
     /* height: 600px;  <-- remove this */
     max-width: 900px;
     background: white;
-    border-radius: 10px;
+    border-radius: 2rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
     position: relative;
@@ -65,9 +65,9 @@ body {
     justify-content: center;
     background-color: #f1f5f9;
     /* Softer, modern gray-blue background */
+        border-radius: 2rem;
     padding: 20px;
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
+    
 }
 
 
@@ -75,6 +75,7 @@ body {
 #imageContainer img {
     width: 80%;
     height: auto;
+    border-radius: 2rem;
 }
 
 #formContainer {
@@ -82,6 +83,7 @@ body {
     padding: 40px;
     text-align: center;
     background: white;
+    border-radius: 2rem;
 }
 
 #imageTopCenter {
@@ -90,6 +92,7 @@ body {
     width: 50%;          /* Let it scale naturally */
     height: 50%;         /* Maintain aspect ratio */
     margin: 0 auto 10px;       /* Center horizontally */
+    background-color: #dbe1ff;
     object-fit: contain;  /* Prevent distortion */
     position: relative;   /* Helps with positioning */
     top: 0;               /* Stick to the top */
@@ -100,7 +103,7 @@ input {
     padding: 12px 16px;
     margin: 10px 0;
     border: 1px solid #cbd5e1; /* Softer gray-blue border */
-    border-radius: 8px;
+    border-radius: 2rem;
     background-color: #f8fafc; /* Soft white-blue background */
     font-size: 15px;
     transition: all 0.3s ease-in-out;
@@ -121,11 +124,10 @@ input:focus {
 button {
     width: 100%;
     margin: 10px 0;
-    background: linear-gradient(90deg, #1e3a8a, #1e40af); /* Deep blue gradient */
-    color: white;
-    padding: 14px 26px;
-    border: none;
-    border-radius: 12px;
+    background: linear-gradient(135deg, var(--first-color), hsl(230, 62%, 66%));/* Add a gradient background */
+    color: var(--white-color);    padding: 14px 26px;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -211,7 +213,7 @@ button:hover img {
     text-align: center;
     font-size: 24px;
     border: 2px solid #ccc;
-    border-radius: 8px;
+    border-radius: 2rem;
     outline: none;
 }
 
@@ -220,7 +222,7 @@ button:hover img {
     display: none;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 2rem;
     border: 1px solid #727b9b;
     background-color: #f4f4f9; /* Light background color */
     padding: 4px; /* Padding for spacing */
@@ -234,7 +236,7 @@ button:hover img {
     width: 2%; /* Increase width for better visibility */
     height: 8px; /* Slightly taller for better prominence */
     background-color: #ff0000; /* Red color for 'Offline' */
-    border-radius: 8px;
+    border-radius: 2rem;
     transition: width 0.5s ease-in-out; /* Smooth transition for width change */
 }
 
@@ -244,6 +246,11 @@ button:hover img {
     font-family: 'Roboto', sans-serif;
     color: #333; /* Darker text color for contrast */
     margin: 10px 0px 20px 0px; /* Space between the bar and text */
+}
+
+.error-message-email{
+    color : red;
+    display: none;
 }
 
 @media (max-width: 768px) {

@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="CSS/Login_Register.css">
-    <link rel="javascript" href="Login_JavaScript.js">
 </head>
 
 <body>
@@ -15,7 +14,8 @@
         </div>
         <div id="formContainer">
             <h1>Login</h1>
-            <input type="text" placeholder="Email" required>
+            <input type="text" placeholder="Email" class ="input-email" required>
+            <div class = "error-message-email"></div>
             <input type="password" placeholder="Password" required>
             <button id="loginButton">Login</button>
             <div style="text-align: right;" class="center">
@@ -29,5 +29,5 @@
         </div>
     </div>
 </body>
-
+    <script src="Email_Checker.js"></script>
 </html>
