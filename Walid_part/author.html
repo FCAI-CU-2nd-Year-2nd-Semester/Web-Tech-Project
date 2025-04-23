@@ -90,9 +90,11 @@
     <div class="search" id="search-content">
         <form action="" class="search__form">
             <i class="ri-search-line search__icon"></i>
-            <input type="search" placeholder="Search..." class="search__input">
+            <input type="search" placeholder="Search..." class="search__input" id="search-input">
         </form>
+
         <i class="ri-close-line search__close" id="search-close"></i>
+        <ul id="search-results" class="search__results"></ul>
     </div>
     <!--======================= MAIN =================-->
     <main class="main">
@@ -374,6 +376,8 @@
     <script src="assets/js/swiper-bundle.min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <!-- Search JS -->
+    <script src="search.js"></script>
 </body>
 
 </html>
