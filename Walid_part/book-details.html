@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FavIcon -->
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <!-- REMIX ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Book Details</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <i class="ri-book-marked-fill"></i>E-Book
+            </a>
+            <div class="nav__menu">
+                <button id="back-button" class="button"><i class="ri-arrow-left-line"></i> Back</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <section class="book-details section">
+            <div class="book-details__container container grid">
+                <!-- Book Cover -->
+                <div class="book-details__image">
+                    <img src="assets/img/book-1.png" alt="Book Cover" id="book-image" class="book-details__img">
+                </div>
+
+                <!-- Book Info -->
+                <div class="book-details__content">
+                    <h1 class="book-details__title" id="book-title">The Great Books - Volume 1</h1>
+                    <p class="book-details__author">By Author Name</p>
+                    
+                    <div class="book-details__prices">
+                        <span class="book-details__price" id="book-price">$60.00</span>
+                        <span class="book-details__discount" id="book-discount">$44.12</span>
+                    </div>
+
+                    <div class="book-details__actions">
+                        <button class="button">Add To Cart</button>
+                    </div>
+
+                    <div class="book-details__description">
+                        <h3 class="book-details__subtitle">Description</h3>
+                        <p class="book-details__text" id="book-description">
+                            A captivating journey through classic literature. This volume contains timeless works 
+                            from renowned authors, carefully curated for modern readers. Perfect for book lovers 
+                            and collectors alike.
+                        </p>
+                    </div>
+
+                    <div class="book-details__meta">
+                        <div class="book-details__info">
+                            <span class="book-details__label">Format:</span>
+                            <span class="book-details__value">eBook</span>
+                        </div>
+                        <div class="book-details__info">
+                            <span class="book-details__label">Pages:</span>
+                            <span class="book-details__value" id="book-pages">350</span>
+                        </div>
+                        <div class="book-details__info">
+                            <span class="book-details__label">ISBN:</span>
+                            <span class="book-details__value" id="book-isbn">978-3-16-148410-0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container grid">
+            <div>
+                <a href="#" class="footer__logo">
+                    <i class="ri-book-3-line"></i>E-Book
+                </a>
+                <p class="footer__description">The best place to find your next read.</p>
+            </div>
+    
+            <div>
+                <h3 class="footer__title">About Us</h3>
+                <ul class="footer__links">
+                    <li><a href="#" class="footer__link">About Us</a></li>
+                    <li><a href="#" class="footer__link">Contact</a></li>
+                    <li><a href="#" class="footer__link">Privacy Policy</a></li>
+                    <li><a href="#" class="footer__link">Terms of Service</a></li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="footer__title">Library</h3>
+                <ul class="footer__links">
+                    <li><a href="#" class="footer__link">Blogs</a></li>
+                    <li><a href="#" class="footer__link">Community</a></li>
+                    <li><a href="#" class="footer__link">Our Team</a></li>
+                    <li><a href="#" class="footer__link">Help Center</a></li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="footer__title">Contact</h3>
+                <ul class="footer__links">
+                    <li>
+                        <address class="footer__info">
+                            Cairo, Egypt <br>
+                            Nassr City <br>
+                            1234567890 <br>
+                        </address>
+                    </li>
+                    <li>
+                        <address class="footer__info">
+                            ebook@gmail.com <br>
+                            +20 1234567890 <br>
+                        </address>
+                    </li>
+                </ul>
+            </div>
+    
+            <div>
+                <h3 class="footer__title">Social</h3>
+                <div class="footer__social">
+                    <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                        <i class="ri-facebook-fill"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                        <i class="ri-instagram-fill"></i>
+                    </a>
+                    <a href="https://twitter.com/explore" target="_blank" class="footer__social-link">
+                        <i class="ri-twitter-fill"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <span class="footer__copy">
+            All rights reserved &copy; 2023 <a href="index.html#home" class="footer__link">E-Book</a>.
+        </span>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Back button functionality
+        document.getElementById('back-button').addEventListener('click', () => {
+            window.history.back();
+        });
+
+        // Parse URL parameters
+        function getUrlParams() {
+            const params = {};
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            
+            // Get all parameters
+            for (const [key, value] of urlParams.entries()) {
+                params[key] = value;
+            }
+            
+            return params;
+        }
+
+        // Load book details from URL parameters
+        function loadBookDetails() {
+            const params = getUrlParams();
+            
+            // Book descriptions based on book ID
+            const bookDescriptions = {
+                "1": "A captivating journey through classic literature. Volume 1 contains timeless works from ancient Greek and Roman authors, carefully curated for modern readers. Perfect for book lovers and collectors alike.",
+                "2": "Continue your literary adventure with Volume 2 of The Great Books series. This collection focuses on Medieval and Renaissance masterpieces that shaped Western thought and culture.",
+                "3": "The enlightenment era comes alive in Volume 3 of The Great Books series. Explore revolutionary ideas that transformed society and laid the groundwork for modern democratic values.",
+                "4": "Volume 4 takes readers through the Romantic period and early modern classics. Experience emotional depth and powerful storytelling that continues to resonate with readers today.",
+                "5": "The final volume in The Great Books series showcases 20th century literary giants. These modern classics challenged conventions and redefined what literature could accomplish."
+            };
+            
+            // Book metadata based on book ID
+            const bookMetadata = {
+                "1": { "pages": "350", "isbn": "978-3-16-148410-0" },
+                "2": { "pages": "420", "isbn": "978-3-16-148410-1" },
+                "3": { "pages": "380", "isbn": "978-3-16-148410-2" },
+                "4": { "pages": "400", "isbn": "978-3-16-148410-3" },
+                "5": { "pages": "320", "isbn": "978-3-16-148410-4" }
+            };
+            
+            // Update page content
+            if (params.title) {
+                document.getElementById('book-title').textContent = params.title;
+                document.title = params.title + " - Book Details";
+            }
+            
+            if (params.price) {
+                document.getElementById('book-price').textContent = "$" + parseFloat(params.price).toFixed(2);
+            }
+            
+            if (params.discount) {
+                document.getElementById('book-discount').textContent = "$" + parseFloat(params.discount).toFixed(2);
+            }
+            
+            if (params.image) {
+                document.getElementById('book-image').src = params.image;
+                document.getElementById('book-image').alt = "Cover of " + (params.title || "book");
+            }
+            
+            // Set book description based on ID
+            if (params.id && bookDescriptions[params.id]) {
+                document.getElementById('book-description').textContent = bookDescriptions[params.id];
+            }
+            
+            // Set book metadata based on ID
+            if (params.id && bookMetadata[params.id]) {
+                document.getElementById('book-pages').textContent = bookMetadata[params.id].pages;
+                document.getElementById('book-isbn').textContent = bookMetadata[params.id].isbn;
+            }
+        }
+
+        // Load book details when the page loads
+        window.onload = loadBookDetails;
+    </script>
+    
+    <!-- Include existing scripts -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

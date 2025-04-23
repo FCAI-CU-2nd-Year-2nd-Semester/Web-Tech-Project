@@ -710,9 +710,8 @@ body.dark-theme{
     row-gap: .75rem;
     position: absolute;
     top: 2rem;
-    right: -1.5rem;
+    right: -3rem; 
     transition: right .4s;
-
 }
 
 .featured__actions button{
@@ -726,7 +725,6 @@ body.dark-theme{
 
 .featured__card:hover .featured__actions{
     right: 1.5rem;
-
 }
 /* Swiper class */
 
@@ -1124,6 +1122,126 @@ body.dark-theme{
 
     .footer__social {
         justify-content: center;
+    }
+}
+
+/* fix eye button */
+.featured__actions button {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--title-color);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: color 0.4s;
+}
+
+.featured__actions button:hover {
+    color: var(--first-color);
+}
+
+
+/*=============== BOOK DETAILS ===============*/
+.book-details__container {
+    padding: 4rem 0;
+    gap: 3rem;
+    align-items: start;
+}
+
+.book-details__image {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.book-details__img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.book-details__content {
+    flex: 1;
+}
+
+.book-details__title {
+    font-size: var(--h1-font-size);
+    margin-bottom: 1rem;
+    color: var(--title-color);
+}
+
+.book-details__author {
+    font-size: var(--h3-font-size);
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.book-details__prices {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.book-details__price {
+    font-size: var(--h1-font-size);
+    color: var(--first-color);
+    font-weight: var(--font-semi-bold);
+}
+
+.book-details__discount {
+    font-size: var(--h2-font-size);
+    color: var(--text-color);
+    text-decoration: line-through;
+}
+
+.book-details__description {
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.book-details__subtitle {
+    font-size: var(--h2-font-size);
+    margin-bottom: 1rem;
+}
+
+.book-details__text {
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.book-details__meta {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.book-details__info {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+}
+
+.book-details__label {
+    font-weight: var(--font-semi-bold);
+    color: var(--title-color);
+}
+
+.book-details__value {
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .book-details__container {
+        grid-template-columns: 1fr;
+    }
+    
+    .book-details__image {
+        max-width: 300px;
     }
 }
 /*=============== SCROLL BAR ===============*/
