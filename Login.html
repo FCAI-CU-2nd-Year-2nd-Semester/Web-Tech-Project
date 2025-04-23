@@ -16,7 +16,7 @@
             <h1>Login</h1>
             <input type="text" placeholder="Email" class ="input-email" required>
             <div class = "error-message-email"></div>
-            <input type="password" placeholder="Password" required>
+            <input type="password" placeholder="Password" class = "input-password" required>
             <button id="loginButton">Login</button>
             <div style="text-align: right;" class="center">
                 <a href="ForgetPassword.html" class="ForgetPassword">Forgot your password?</a>
@@ -48,5 +48,33 @@
                 }
 
             }
+
+            document.querySelector("#loginButton").addEventListener("click", () => {
+                const email = document.querySelector(".input-email").value.trim();
+                const password = document.querySelector(".input-password").value.trim();
+                if (password == "") {
+                    alert("Please fill in all fields.");
+                    return;
+                }
+                else if (document.querySelector(".error-message-email").style.display != "none") {
+                    alert("Please enter a valid email address.");
+                    return;
+                }
+                else {
+                    if (email == "admin@gmail.com" && password == "Gmw$4321") {
+                        alert("Login successful!");
+                        // Redirect to the main page or perform any other action
+                        window.location.href = "Walid_part/author.html"; // Replace with your main page URL
+                    }
+                    else if (email == "admin@gmail.com"){
+                        alert("Invalid password. Please try again.");
+                        return;
+                    }
+                    else {
+                        alert("Login successful!");
+                        window.location.href = "Walid_part/index.html";
+                    }
+                }
+            });
     </script>
 </html>
