@@ -580,39 +580,27 @@ body.dark-theme{
 
 .services__card:hover {
     transform: translateY(-10px);
-    /* Lift the card slightly on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    /* Add a shadow effect */
 }
 .services__card i {
     font-size: 2rem;
     color: var(--first-color);
     margin-bottom: 1rem;
-    /* Add spacing below the icon */
 }
 .services__card h3 {
     font-size: var(--h2-font-size);
-    /* Use a slightly smaller font size */
     color: var(--title-color);
-    /* Use the title color for contrast */
     margin-bottom: 1rem;
-    /* Add spacing below the title */
     font-family: var(--second-font);
-    /* Use a serif font for elegance */
     font-weight: var(--font-medium);
-    /* Make the title bold */
+    
 }
 .services__card p {
     font-size: var(--normal-font-size);
-    /* Use the normal font size */
     color: var(--text-color);
-    /* Use the text color for contrast */
     line-height: 1.6;
-    /* Increase line height for better readability */
     margin-bottom: 1rem;
-    /* Add spacing below the paragraph */
     text-align: justify;
-    /* Justify the text for better alignment */
 }
 .services__card a {
     display: inline-block;
@@ -620,15 +608,11 @@ body.dark-theme{
     color: var(--white-color);
     padding: 1rem 2rem;
     border-radius: 2rem;
-    /* Make the button more rounded */
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
     text-transform: uppercase;
-    /* Make the text uppercase */
     letter-spacing: 1px;
-    /* Add spacing between letters */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /* Add a subtle shadow */
     transition: all .4s ease;
 }
 
@@ -644,11 +628,8 @@ body.dark-theme{
 /*========================= Last section ========================*/
 .last-section {
     padding-bottom: var(--header-height);
-    /* Add padding to the bottom */
     min-height: 20vh;
-    /* Ensure the section is at least the height of the viewport */
     z-index: 1;
-    /* Ensure it appears above other elements */
 }
 
 
@@ -737,19 +718,14 @@ body.dark-theme{
     padding: 50px;
     background-color: var(--container-color);
     border: 2px solid var(--border-color);
-    /* Add a border */
     border-radius: 1.5rem;
-    /* Add rounded corners */
     box-shadow: 0 2px 16px hsla(0, 0%, 0%, 0.1);
-    /* Subtle shadow */
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-    /* Smooth hover effect */
+    
 }
 .discount__container:hover{
     transform: translateY(-10px);
-    /* Lift the card slightly on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    /* Add a shadow effect */
 }
 
 .discount__data{
@@ -790,14 +766,11 @@ body.dark-theme{
 .discount__img-12:hover,
 .discount__img-22:hover{
     transform: scale(1.05);
-    /* Slightly enlarge the image on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    /* Add a shadow effect */
 }
 .discount__img-1,
 .discount__img-12{
     z-index: 1;
-    /* Ensure it appears above the other image */
 }
 .discount__img-12{
     transform: translateX(1rem) rotate(-20deg);
@@ -825,9 +798,7 @@ body.dark-theme{
 .new__card:hover{
     transform: translateY(-10px);
     border: 2px solid var(--first-color);
-    /* Lift the card slightly on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    /* Add a shadow effect */
 }
 .new__card img{
     width: 150px;
@@ -838,9 +809,7 @@ body.dark-theme{
 }
 .new__card img:hover{
     transform: scale(1.05);
-    /* Slightly enlarge the image on hover */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    /* Add a shadow effect */
 }
 
 .new__title{
@@ -880,85 +849,6 @@ body.dark-theme{
 .new__swiper:nth-child(1){
     margin-bottom: 2rem;
 }
-/*=============== JOIN ===============*/
-.join__container {
-    display: flex;
-    flex-direction: column;
-    /* Stack items vertically */
-    justify-content: flex-start;
-    /* Align items to the top */
-    align-items: center;
-    /* Center items horizontally */
-    padding: 2rem 1rem;
-    background-color: var(--container-color);
-    border-radius: 1.5rem;
-    box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
-    transition: border 0.4s, background-color 0.4s;
-    margin-bottom: 2rem;
-    margin-top: 10rem;
-}
-
-.join__title {
-    font-size: var(--h2-font-size);
-    margin-bottom: 1rem;
-    /* Add spacing below the title */
-    color: var(--first-color);
-    font-weight: var(--font-medium);
-    text-align: center;
-    /* Center-align the title */
-    transition: color 0.4s;
-}
-
-.join__container p {
-    font-size: var(--normal-font-size);
-    color: var(--text-color);
-    margin-bottom: 1.5rem;
-    text-align: center;
-    line-height: 1.6;
-    max-width: 600px;
-    margin-inline: auto;
-    /* Center the description horizontally */
-}
-
-.join__form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1.5rem;
-    width: 100%;
-    /* Ensure the form takes full width */
-}
-.join__container:hover {
-    transform: translateY(-10px);
-    border: 2px solid var(--first-color);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.6s ease, box-shadow 0.6s ease, border 0.6s ease;
-    /* Smooth hover effect for transform, box-shadow, and border */
-}
-
-.join__input{
-    padding: 1rem;
-    width: 100%;
-    font-size: var(--normal-font-size);
-    color: var(--text-color);
-    background-color: var(--container-color);
-    border: 2px solid var(--border-color);
-    border-radius: 1.5rem;
-    transition: border-color .4s;
-}
-.join__input::placeholder{
-    color: var(--text-color);
-    font-size: var(--small-font-size);
-}
-.join__input:focus{
-    border-color: var(--first-color);
-}
-.join__input:focus::placeholder{
-    color: transparent;
-}
-.join__input:focus::placeholder{
-    color: transparent;
-}
-
 /*========================== for larg devices ================================*/
 @media screen and (min-width: 1150px) {
     .section {
@@ -1141,39 +1031,56 @@ body.dark-theme{
 }
 
 
-/*=============== BOOK DETAILS ===============*/
+/* Book Details Section */
+.book-details {
+    padding: 4rem 1rem;
+    background-color: var(--container-color);
+}
+
 .book-details__container {
-    padding: 4rem 0;
-    gap: 3rem;
-    align-items: start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 10px auto;
+    margin-top: 2rem;
 }
 
 .book-details__image {
-    max-width: 400px;
-    margin: 0 auto;
-    border-radius: 1.5rem;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .book-details__img {
-    width: 100%;
-    height: auto;
-    display: block;
+    max-width: 100%;
+    height: 35rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-details__img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .book-details__content {
-    flex: 1;
+    background-color: var(--white-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .book-details__title {
     font-size: var(--h1-font-size);
-    margin-bottom: 1rem;
+    font-family: var(--second-font);
+    font-weight: var(--font-semi-bold);
     color: var(--title-color);
+    margin-bottom: 1rem;
 }
 
 .book-details__author {
-    font-size: var(--h3-font-size);
+    font-size: var(--normal-font-size);
     color: var(--text-color);
     margin-bottom: 1.5rem;
 }
@@ -1181,57 +1088,86 @@ body.dark-theme{
 .book-details__prices {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .book-details__price {
-    font-size: var(--h1-font-size);
-    color: var(--first-color);
+    font-size: var(--h2-font-size);
     font-weight: var(--font-semi-bold);
+    color: var(--first-color);
 }
 
 .book-details__discount {
-    font-size: var(--h2-font-size);
+    font-size: var(--normal-font-size);
     color: var(--text-color);
     text-decoration: line-through;
 }
 
+.book-details__actions {
+    margin-bottom: 2rem;
+}
+
+.book-details__actions .button {
+    background-color: var(--first-color);
+    color: var(--white-color);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.book-details__actions .button:hover {
+    background-color: hsl(230, 62%, 66%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
 .book-details__description {
-    margin: 2rem 0;
-    padding: 1.5rem 0;
-    border-top: 2px solid var(--border-color);
-    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 2rem;
 }
 
 .book-details__subtitle {
     font-size: var(--h2-font-size);
+    font-family: var(--second-font);
+    font-weight: var(--font-semi-bold);
+    color: var(--title-color);
     margin-bottom: 1rem;
 }
 
 .book-details__text {
-    line-height: 1.6;
+    font-size: var(--normal-font-size);
     color: var(--text-color);
+    line-height: 1.6;
 }
 
 .book-details__meta {
-    display: grid;
-    gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
 .book-details__info {
-    display: flex;
-    gap: 0.5rem;
-    align-items: baseline;
+    background-color: var(--container-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .book-details__label {
-    font-weight: var(--font-semi-bold);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
     color: var(--title-color);
 }
 
 .book-details__value {
+    font-size: var(--normal-font-size);
     color: var(--text-color);
 }
 
@@ -1239,9 +1175,10 @@ body.dark-theme{
     .book-details__container {
         grid-template-columns: 1fr;
     }
-    
+
     .book-details__image {
         max-width: 300px;
+        margin: 0 auto;
     }
 }
 /*=============== SCROLL BAR ===============*/
