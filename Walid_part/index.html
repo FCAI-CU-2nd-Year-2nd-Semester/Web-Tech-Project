@@ -543,6 +543,39 @@
         </span>
     </footer>
     <!--======================= SCROLL UP =================-->
+        <!-- Dynamically Add a Book Card -->
+        <!-- <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const featuredContainer = document.querySelector('.swiper-wrapper'); // Select the container for featured books
+
+                // Get books from localStorage
+                const books = JSON.parse(localStorage.getItem('books')) || [];
+
+                // Render each book as a card
+                books.forEach(book => {
+                    const bookCard = document.createElement('article');
+                    bookCard.classList.add('featured__card', 'swiper-slide'); // Use the same classes as existing cards
+                    bookCard.innerHTML = `
+                        <img src="${book.image}" alt="Cover of ${book.title}" class="featured__img">
+                        <h2 class="featured__title">${book.title}</h2>
+                        <div class="featured__prices">
+                            <span class="featured__price">$${book.price}</span>
+                        </div>
+                        <button class="button">Add To Cart</button>
+                        <div class="featured__actions">
+                            <button><i class="ri-search-2-line"></i></button>
+                            <button class="favorite-button" aria-label="Add to Favorites">
+                                <i class="ri-poker-hearts-line favorite-icon"></i>
+                            </button>
+                            <button onclick="window.location.href='book-details.html?id=${book.id}&title=${book.title}&price=${book.price}&image=${book.image}'">
+                                <i class="ri-eye-line"></i>
+                            </button>
+                        </div>
+                    `;
+                    featuredContainer.appendChild(bookCard);
+                });
+            });
+        </script> -->
     <!-- ScrollReveal-->
     <script src="assets/js/scrollreveal.min.js"></script>
 

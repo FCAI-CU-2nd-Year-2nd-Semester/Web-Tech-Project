@@ -349,6 +349,39 @@
                 uploadArea.querySelector('.upload-content').style.display = 'flex';
             });
         });
+
+// Add Book
+        document.addEventListener('DOMContentLoaded', function () {
+                const bookForm = document.querySelector('.admin-form');
+                const fileInput = document.getElementById('fileInput');
+
+                // Handle the "Add Book" button
+                bookForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Get book details from the form
+                    const title = bookForm.querySelector('input[placeholder="Book Title"]').value;
+                    const author = bookForm.querySelector('input[placeholder="Author"]').value;
+                    const price = bookForm.querySelector('input[placeholder="Price"]').value;
+                    const image = fileInput.files[0] ? URL.createObjectURL(fileInput.files[0]) : './assets/img/default-book.png';
+
+                    // Create a new book object
+                    const newBook = { id: Date.now(), title, author, price, image };
+
+                    // Save the book to localStorage
+                    const books = JSON.parse(localStorage.getItem('books')) || [];
+                    books.push(newBook);
+                    localStorage.setItem('books', JSON.stringify(books));
+
+                    // Reset the form
+                    bookForm.reset();
+                    document.getElementById('previewArea').style.display = 'none';
+                    document.getElementById('uploadArea').querySelector('.upload-content').style.display = 'flex';
+
+                    // Show success message
+                    alert('Book added successfully!');
+                });
+            });
     </script>
 </body>
 </html>
