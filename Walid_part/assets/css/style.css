@@ -879,7 +879,14 @@ body.dark-theme{
 
 }
 
-
+/* Add shadow to book images */
+.featured__img,
+.home__img,
+.discount__img-1,
+.discount__img-2 {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.325);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 /*=============== FOOTER ===============*/
 /* Footer Styles */
 .footer {
