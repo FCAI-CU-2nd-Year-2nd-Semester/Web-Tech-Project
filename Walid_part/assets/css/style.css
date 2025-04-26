@@ -316,6 +316,81 @@ body.dark-theme{
     top: 0;
 }
 
+.search__results {
+  background-color: transparent !important;
+  margin: 0.5rem auto;
+  max-height: 500px;
+  overflow-y: auto;
+}
+.search_card {
+  cursor: pointer;
+  margin: 1rem 0;
+  display: flex;
+  align-items: flex-start; 
+  background-color: var(--container-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  gap: 1.5rem; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.search__img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.search_card_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.search__title {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.search__description {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.search__prices {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search__discount {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--first-color); /* red discount price */
+}
+
+.search__price {
+  font-size: 1rem;
+  color: #777;
+  text-decoration: line-through;
+}
+
+.search__author {
+    font-size: 1rem;
+    color: #555;
+    margin: 0 0 0.5rem 0;
+}
+
+
+
 /*=============== HOME ===============*/
 .home__swiper{
     width: 100%;

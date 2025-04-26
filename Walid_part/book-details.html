@@ -38,7 +38,7 @@
                 <!-- Book Info -->
                 <div class="book-details__content">
                     <h1 class="book-details__title" id="book-title">The Great Books - Volume 1</h1>
-                    <p class="book-details__author">By Author Name</p>
+                    <p class="book-details__author" id="book-author">By Author Name</p>
         
                     <div class="book-details__prices">
                         <span class="book-details__price" id="book-price">$60.00</span>
@@ -191,7 +191,9 @@
                 document.getElementById('book-title').textContent = params.title;
                 document.title = params.title + " - Book Details";
             }
-            
+            if(params.author) {
+                document.getElementById('book-author').textContent = "By " + params.author;
+            }
             if (params.price) {
                 document.getElementById('book-price').textContent = "$" + parseFloat(params.price).toFixed(2);
             }
