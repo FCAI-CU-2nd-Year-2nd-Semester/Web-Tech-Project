@@ -29,52 +29,5 @@
         </div>
     </div>
 </body>
-    <script>
-        document.querySelector(".input-email").addEventListener("input", () => {
-                CheckInputEmail();
-            });
-
-            function CheckInputEmail() {
-                const input = document.querySelector(".input-email")
-                const errorMessage = document.querySelector(".error-message-email");
-                const email = input.value;
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (email.trim() == "" || emailRegex.test(email)) {
-                    errorMessage.style.display = "none";
-                }
-                else {
-                    errorMessage.style.display = "block";
-                    errorMessage.innerHTML = "Invalid email address";
-                }
-
-            }
-
-            document.querySelector("#loginButton").addEventListener("click", () => {
-                const email = document.querySelector(".input-email").value.trim();
-                const password = document.querySelector(".input-password").value.trim();
-                if (password == "") {
-                    alert("Please fill in all fields.");
-                    return;
-                }
-                else if (document.querySelector(".error-message-email").style.display != "none") {
-                    alert("Please enter a valid email address.");
-                    return;
-                }
-                else {
-                    if (email == "admin@gmail.com" && password == "Gmw$4321") {
-                        alert("Login successful!");
-                        // Redirect to the main page or perform any other action
-                        window.location.href = "Walid_part/author.html"; // Replace with your main page URL
-                    }
-                    else if (email == "admin@gmail.com"){
-                        alert("Invalid password. Please try again.");
-                        return;
-                    }
-                    else {
-                        alert("Login successful!");
-                        window.location.href = "Walid_part/index.html";
-                    }
-                }
-            });
-    </script>
+      <script src="authorization.js"></script>
 </html>
