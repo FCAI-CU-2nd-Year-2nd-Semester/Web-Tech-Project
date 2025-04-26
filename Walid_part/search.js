@@ -1,60 +1,17 @@
-const books=[ 
-   "cleanCoder",
-    "clean code","Clean Architecture",
-    "Cook What You Have",
-    "concepts in programming languages",
-    "control your mind",
-    "Investing for Kids",
-    "Java script the good parts",
-    "Juicing for Beginners",
-    "Ramen Obsession",
-    "Rich Dad Poor Dad",
-    "Savor",
-    "Speed Reading",
-    "The Flavor Bible",
-    "The Humanity Factor",
-    "The Power of Habit",
-    "atomic habits L",
-    "i don't love you any more",
-    "software engineering",
-    "thank you for leaving",
-    "the 48 law of power",
-    "the c programming language 2nd edition",
-    "the power of now",
-    "the python workshop",
-    "twisted love"
-  ];
+const searchInput = document.getElementById("search-input");
+const searchCards = document.querySelectorAll(".search_card"); // select all book cards
 
-  function searchbook(keyword){
-    keyword = keyword.trim();
-    const result=books.filter (title=>(title.toLowerCase()).includes (keyword.toLowerCase()));
-    return result;
-  }
+searchInput.addEventListener("input", () => {
+  const keyword = searchInput.value.trim().toLowerCase();
 
-  const searchInput = document.getElementById("search-input");
-  const searchResults = document.getElementById("search-results");
+  searchCards.forEach((card) => {
+    const titleElement = card.querySelector(".search__title"); // get the h2 inside the card
+    const bookTitle = titleElement.textContent.trim().toLowerCase(); // get the title text
 
-searchInput.addEventListener("input",()=>{
-
-const keyword=searchInput.value.trim();
-const result=searchbook(keyword);
-
-searchResults.innerHTML = "";
-
-if (keyword==="") return;
-
-if (result.length === 0){
-const li= document.createElement("li");
-li.textContent="No books found";
-searchResults.appendChild(li);
-}
-else{
-  result.forEach(title => {
-    const li =document.createElement("li");
-    li.textContent=title;
-    searchResults.appendChild(li)
+    if (keyword === "" || bookTitle.includes(keyword)) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";   // Hide the card
+    }
   });
-  
-}
-
 });
